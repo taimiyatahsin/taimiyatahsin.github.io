@@ -1169,3 +1169,92 @@ a:focus-visible,button:focus-visible {
     animation:none!important;
   }
 }
+
+/* Quiet mist palette: one cool, low-glare hue family */
+body {
+  background-color:#10191c;
+  background-image:
+    radial-gradient(ellipse at 16% 20%,rgba(112,158,160,.13),transparent 38%),
+    radial-gradient(ellipse at 82% 76%,rgba(112,158,160,.10),transparent 42%),
+    linear-gradient(145deg,#0d1518 0%,#142024 52%,#10191c 100%);
+  background-size:160% 160%;
+  animation:quietMist 34s ease-in-out infinite alternate;
+}
+@keyframes quietMist {
+  from { background-position:0% 20%; }
+  to { background-position:100% 80%; }
+}
+.background-glow {
+  background:radial-gradient(circle,rgba(145,184,183,.30),rgba(145,184,183,.10) 42%,transparent 72%)!important;
+  opacity:.11!important;
+  filter:blur(120px);
+}
+.glow-one { animation-duration:34s; }
+.glow-two { animation-duration:41s; }
+
+/* Slow feather-like silhouettes drifting through the background */
+.feather-drift {
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:0;
+  contain:layout paint;
+}
+.drift-feather {
+  position:absolute;
+  display:block;
+  width:13px;
+  height:37px;
+  opacity:0;
+  border-radius:100% 0 100% 0;
+  background:linear-gradient(145deg,rgba(190,215,211,.34),rgba(128,164,163,.12) 65%,rgba(190,215,211,.04));
+  box-shadow:0 0 16px rgba(147,184,181,.08);
+  transform-origin:50% 85%;
+  will-change:transform,opacity;
+}
+.drift-feather::after {
+  content:"";
+  position:absolute;
+  width:1px;
+  height:85%;
+  left:50%;
+  top:8%;
+  background:rgba(211,228,222,.24);
+  transform:rotate(-13deg);
+}
+.feather-one { left:10%; animation:featherFloat 31s linear infinite; animation-delay:-8s; }
+.feather-two { left:29%; width:9px;height:28px; animation:featherFloat 38s linear infinite; animation-delay:-25s; }
+.feather-three { left:53%; animation:featherFloat 35s linear infinite; animation-delay:-17s; }
+.feather-four { left:76%; width:10px;height:30px; animation:featherFloat 42s linear infinite; animation-delay:-31s; }
+.feather-five { left:91%; animation:featherFloat 37s linear infinite; animation-delay:-12s; }
+@keyframes featherFloat {
+  0% { top:112%; opacity:0; transform:translate3d(0,0,0) rotate(-24deg); }
+  12% { opacity:.34; }
+  48% { transform:translate3d(34px,-52vh,0) rotate(48deg); }
+  84% { opacity:.25; }
+  100% { top:-12%; opacity:0; transform:translate3d(-28px,-112vh,0) rotate(145deg); }
+}
+:root[data-theme="light"] body {
+  background-color:#edf3f1;
+  background-image:
+    radial-gradient(ellipse at 16% 20%,rgba(139,177,174,.20),transparent 38%),
+    radial-gradient(ellipse at 82% 76%,rgba(139,177,174,.16),transparent 42%),
+    linear-gradient(145deg,#f3f7f5 0%,#e9f0ee 52%,#f4f7f5 100%);
+}
+:root[data-theme="light"] .background-glow { opacity:.13!important; }
+:root[data-theme="light"] .drift-feather {
+  background:linear-gradient(145deg,rgba(91,128,126,.25),rgba(119,157,154,.08) 65%,transparent);
+  box-shadow:none;
+}
+:root[data-theme="light"] .drift-feather::after { background:rgba(81,119,117,.20); }
+@media (prefers-reduced-motion:reduce) {
+  body,.background-glow,.drift-feather,.drift-feather * {
+    animation:none!important;
+  }
+  .drift-feather { display:none; }
+}
+@media (max-width:600px) {
+  .drift-feather { transform:scale(.8); }
+  .background-glow { opacity:.08!important; }
+}
