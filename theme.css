@@ -605,7 +605,7 @@ body {
   background: color-mix(in srgb, var(--bg-soft) 72%, transparent);
 }
 .window-top::after {
-  content: "TAIMIYA.TAHSiN.JS";
+  content: "TAIMIYA.TAHSIN.JS";
   margin-left: auto;
   color: var(--text);
   opacity: .68;
