@@ -1087,3 +1087,85 @@ body {
   .background-glow { width:270px;height:270px;filter:blur(90px);opacity:.12; }
   body { background-size:220% 220%; }
 }
+
+
+/* =========================================================
+   READABILITY GUARD — keep lively wallpaper behind content
+   High contrast text, calm surfaces, accessible focus states.
+========================================================= */
+body { color:var(--white); }
+main,.navbar,footer { position:relative; z-index:1; }
+.background-glow { z-index:0; pointer-events:none; }
+.hero-content,.hero-card,.section > *, .navbar > * { position:relative; }
+.hero-text,.about-grid p,.research-intro,
+.skill-card p,.interest-card p,
+.contact-section > p:not(.section-label) {
+  color:var(--text);
+  font-size:clamp(14px,1.05vw,16px);
+  line-height:1.85;
+  text-shadow:0 1px 1px rgba(0,0,0,.12);
+}
+.hero h2,.section-title,.skill-card h3,.interest-card h3,
+.about-box strong { color:var(--white); }
+.eyebrow,.section-label,.skill-number,.interest-card > span {
+  font-weight:750;
+  letter-spacing:1.7px;
+  text-shadow:0 1px 8px color-mix(in srgb,var(--bg) 65%,transparent);
+}
+.skill-card,.interest-card,.about-box div {
+  color:var(--white);
+  background-color:var(--card);
+  backdrop-filter:blur(2px);
+}
+.code-window { color:#fff4fb; }
+.code-window pre { color:#fff4fb; }
+.code-window pre code { color:inherit; }
+.code-window .pink { color:#ff80ca; }
+.code-window .green { color:#b8f0cf; }
+.btn.primary,.btn.secondary,.contact-links a,.theme-toggle {
+  font-weight:750;
+  text-shadow:none;
+}
+a:focus-visible,button:focus-visible {
+  outline:3px solid #ff9bd3;
+  outline-offset:4px;
+  border-radius:8px;
+}
+::selection { background:#ff42b9;color:#180817; }
+:root[data-theme="light"] body { color:#382536; }
+:root[data-theme="light"] .hero-text,
+:root[data-theme="light"] .about-grid p,
+:root[data-theme="light"] .research-intro,
+:root[data-theme="light"] .skill-card p,
+:root[data-theme="light"] .interest-card p,
+:root[data-theme="light"] .contact-section > p:not(.section-label) {
+  color:#563b4e;
+  text-shadow:none;
+}
+:root[data-theme="light"] .hero h2,
+:root[data-theme="light"] .section-title,
+:root[data-theme="light"] .skill-card h3,
+:root[data-theme="light"] .interest-card h3,
+:root[data-theme="light"] .about-box strong { color:#42253a; }
+:root[data-theme="light"] .eyebrow,
+:root[data-theme="light"] .section-label,
+:root[data-theme="light"] .skill-number,
+:root[data-theme="light"] .interest-card > span {
+  color:#8c285f;
+  text-shadow:none;
+}
+:root[data-theme="light"] .skill-card,
+:root[data-theme="light"] .interest-card,
+:root[data-theme="light"] .about-box div {
+  color:#42253a;
+  background-color:#fffafd;
+}
+:root[data-theme="light"] .code-window { color:#fff4fb; }
+:root[data-theme="light"] .code-window pre { color:#fff4fb; }
+:root[data-theme="light"] .code-window .pink { color:#ff91d0; }
+:root[data-theme="light"] .code-window .green { color:#c0f2d4; }
+@media (prefers-reduced-motion:reduce) {
+  body,.background-glow,.skill-card,.interest-card,.about-box div {
+    animation:none!important;
+  }
+}
