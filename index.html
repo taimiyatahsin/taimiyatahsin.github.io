@@ -20,6 +20,7 @@
 
     <link rel="canonical" href="https://taimiyatahsin0-png.github.io/">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fluffy-theme.css">
 
     <!-- Open Graph -->
     <meta property="og:type" content="profile">
@@ -87,6 +88,11 @@
             <a href="#interests">Interests</a>
             <a href="#contact">Contact</a>
         </nav>
+
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+            <span id="theme-icon" aria-hidden="true">☀️</span>
+            <span id="theme-label">Light mode</span>
+        </button>
     </header>
 
     <!-- Hero -->
@@ -424,6 +430,28 @@
 
     <!-- JavaScript -->
     <script>
+        // Accessible light / dark theme toggle (saved locally on this device)
+        const themeToggle = document.getElementById("theme-toggle");
+        const themeIcon = document.getElementById("theme-icon");
+        const themeLabel = document.getElementById("theme-label");
+        const savedTheme = localStorage.getItem("taimiya-theme");
+        const initialTheme = savedTheme === "light" ? "light" : "dark";
+
+        function applyTheme(theme) {
+            document.documentElement.dataset.theme = theme;
+            const isDark = theme === "dark";
+            themeIcon.textContent = isDark ? "☀️" : "🌙";
+            themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
+            themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+            themeToggle.setAttribute("aria-pressed", String(!isDark));
+            localStorage.setItem("taimiya-theme", theme);
+        }
+
+        applyTheme(initialTheme);
+        themeToggle.addEventListener("click", () => {
+            applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+        });
+
         // Dynamic year
         document.getElementById("year").textContent =
             new Date().getFullYear();
