@@ -635,3 +635,101 @@ footer { text-align: center; padding: 28px 5%; }
   .hero-content, .hero-card { animation: none !important; }
   .code-window, .skill-card, .interest-card, .btn, .contact-links a { transition: none !important; }
 }
+
+
+/* =========================================================
+   AURORA NOIR — DEEP EMERALD / CHAMPAGNE GOLD
+   Pink-free premium direction; CSS-only and lightweight.
+========================================================= */
+:root {
+  --luxe-gold:#e8c77f;
+  --luxe-gold-bright:#fff0bd;
+  --luxe-pink:#45c6a0;
+  --luxe-pink-soft:#a4ead1;
+}
+:root[data-theme="dark"] {
+  --bg:#071311;
+  --bg-soft:#0d1d19;
+  --card:#12251f;
+  --white:#f4f7ee;
+  --text:#c3d5ca;
+  --border:#29483b;
+  --pink:#55cba5;
+  --pink-soft:#a4ead1;
+  --gold:#e8c77f;
+  --gold-deep:#b78b42;
+}
+:root[data-theme="light"] {
+  --bg:#f7faf5;
+  --bg-soft:#edf4ed;
+  --card:#ffffff;
+  --white:#1d3329;
+  --text:#4b6257;
+  --border:#d3e2d6;
+  --pink:#168565;
+  --pink-soft:#48a98a;
+  --gold:#8a6727;
+  --gold-deep:#6e511e;
+}
+body {
+  background:
+    radial-gradient(ellipse at 9% 8%,color-mix(in srgb,#27a77d 13%,transparent),transparent 33rem),
+    radial-gradient(ellipse at 88% 26%,color-mix(in srgb,var(--luxe-gold) 12%,transparent),transparent 31rem),
+    var(--bg);
+}
+.hero h1 span {
+  background:linear-gradient(108deg,var(--luxe-gold-bright),var(--luxe-gold) 58%,#65d7ad);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero h2 { color:var(--pink); }
+.eyebrow::before { background:linear-gradient(90deg,var(--gold),#55cba5); }
+.btn.primary {
+  color:#17271f;
+  background:linear-gradient(120deg,#fff0bd,#dfbd72 62%,#9dd9bd);
+  box-shadow:0 9px 26px color-mix(in srgb,var(--gold) 23%,transparent),inset 0 1px 0 rgba(255,255,255,.6);
+}
+.btn.primary:hover { box-shadow:0 14px 32px color-mix(in srgb,#42b88e 22%,transparent); }
+.btn.secondary { border-color:color-mix(in srgb,var(--gold) 45%,var(--border)); }
+.btn.secondary:hover { color:var(--gold);border-color:#55cba5; }
+.glow { background:#36bd91;opacity:.12; }
+.code-window {
+  border-color:color-mix(in srgb,var(--gold) 38%,var(--border));
+  background:linear-gradient(145deg,var(--card),color-mix(in srgb,var(--card) 91%,#c4a15d 9%));
+}
+.window-top span:nth-child(1) { background:#55cba5; }
+.window-top span:nth-child(2) { background:#e8c77f; }
+.window-top span:nth-child(3) { background:#83b9d2; }
+.pink { color:var(--pink); }
+.section-title::after { background:linear-gradient(90deg,var(--gold),#55cba5); }
+.about-box div,.skill-card,.interest-card {
+  background:linear-gradient(145deg,var(--card),color-mix(in srgb,var(--card) 95%,#42b88e 5%));
+}
+.skill-card:hover,.interest-card:hover {
+  border-color:#55cba5;
+  box-shadow:0 17px 36px color-mix(in srgb,#36bd91 13%,transparent);
+}
+.research-section {
+  background:
+    radial-gradient(ellipse at 90% 12%,color-mix(in srgb,#36bd91 8%,transparent),transparent 31rem),
+    var(--bg-soft);
+}
+.contact-links a:hover { color:var(--pink);border-color:var(--pink); }
+:root[data-theme="light"] body {
+  background:
+    radial-gradient(ellipse at 9% 8%,rgba(22,133,101,.08),transparent 33rem),
+    radial-gradient(ellipse at 88% 26%,rgba(138,103,39,.08),transparent 31rem),
+    #f7faf5;
+}
+:root[data-theme="light"] .hero h2 { color:#16785d; }
+:root[data-theme="light"] .code-window {
+  background:linear-gradient(145deg,#fff,#f0f6ef);
+  border-color:#d3e2d6;
+}
+:root[data-theme="light"] .about-box div,
+:root[data-theme="light"] .skill-card,
+:root[data-theme="light"] .interest-card {
+  background:linear-gradient(145deg,#fff,#f4f8f2);
+  border-color:#d3e2d6;
+}
+:root[data-theme="light"] .pink { color:#16785d; }
+:root[data-theme="light"] .contact-links a:hover { color:#16785d;border-color:#168565; }
