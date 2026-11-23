@@ -1,0 +1,69 @@
+/* Premium soft-plush visual refresh — lightweight CSS only */
+:root {
+  color-scheme: dark; --bg:#100b14; --bg-soft:#19111d; --card:#211827;
+  --pink:#ff83bd; --pink-soft:#ffc1dc; --white:#fff6fb; --text:#d2c0ce;
+  --border:#493044; --surface-glass:rgba(31,21,35,.78); --shadow-soft:0 18px 50px rgba(7,3,10,.28);
+}
+:root[data-theme="light"] {
+  color-scheme:light; --bg:#fff7fb; --bg-soft:#ffedf5; --card:#fffafd;
+  --pink:#d94f91; --pink-soft:#f28ab8; --white:#482b3d; --text:#76596c;
+  --border:#f0cddd; --surface-glass:rgba(255,249,252,.88); --shadow-soft:0 18px 48px rgba(151,79,117,.11);
+}
+html { scroll-padding-top:90px; }
+body {
+  background:radial-gradient(ellipse at 12% 8%, color-mix(in srgb,var(--pink) 12%,transparent),transparent 34rem),
+  radial-gradient(ellipse at 88% 35%,color-mix(in srgb,#c8a8ff 10%,transparent),transparent 32rem),var(--bg);
+  transition:background-color .25s ease,color .25s ease;
+}
+::selection { background:var(--pink);color:#fff; }
+.navbar { display:flex;gap:22px;background:var(--surface-glass);border-bottom:1px solid var(--border);box-shadow:0 8px 30px rgba(30,10,25,.06); }
+.logo { color:var(--white); }
+.logo span { filter:drop-shadow(0 2px 6px color-mix(in srgb,var(--pink) 45%,transparent)); }
+.theme-toggle {
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:8px 14px;
+  border:1px solid var(--border);border-radius:999px;background:var(--card);color:var(--white);
+  font:600 12px/1 Inter,sans-serif;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 5px 16px rgba(20,8,18,.08);
+  transition:transform .2s ease,border-color .2s ease,background .2s ease;
+}
+.theme-toggle:hover { transform:translateY(-2px);border-color:var(--pink); }
+.theme-icon { font-size:16px; }
+.navbar nav { margin-left:auto; }
+.navbar nav a { color:var(--text); }
+.hero { min-height:82vh; }
+.hero h1 { letter-spacing:-4px; }
+.hero h1 span {
+  background:linear-gradient(110deg,var(--pink),var(--pink-soft),#c5a5ff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.eyebrow,.section-label { letter-spacing:2.5px; }
+.btn { border-radius:999px;padding:14px 25px; }
+.btn.primary { color:#fff;background:linear-gradient(135deg,var(--pink),#c77bda);box-shadow:0 8px 22px color-mix(in srgb,var(--pink) 24%,transparent),inset 0 1px 0 rgba(255,255,255,.35); }
+.btn.secondary { border-radius:999px; }
+.code-window,.about-box div,.skill-card,.interest-card {
+  border-radius:22px;border-color:var(--border);
+  background:linear-gradient(145deg,color-mix(in srgb,var(--card) 96%,white 4%),var(--card));
+  box-shadow:var(--shadow-soft),inset 0 1px 0 rgba(255,255,255,.08);
+}
+.code-window { backdrop-filter:blur(10px); }
+.code-window:hover,.skill-card:hover,.interest-card:hover,.about-box div:hover {
+  border-color:color-mix(in srgb,var(--pink) 65%,var(--border));box-shadow:0 18px 42px color-mix(in srgb,var(--pink) 12%,transparent);
+}
+.research-section { background:color-mix(in srgb,var(--bg-soft) 82%,transparent); }
+.section { border-top-color:var(--border); }
+.contact-links { flex-wrap:wrap; }
+.contact-links a { border-radius:999px;background:var(--card);border-color:var(--border);box-shadow:inset 0 1px 0 rgba(255,255,255,.12); }
+footer { border-top-color:var(--border);color:var(--text); }
+.background-glow { opacity:.045;filter:blur(110px); }
+:focus-visible { outline:3px solid var(--pink);outline-offset:4px; }
+@media(max-width:900px) {
+  .navbar { padding:15px 5%; }.navbar nav { display:none; }.theme-toggle { margin-left:auto; }
+}
+@media(max-width:550px) {
+  .navbar { padding:13px 5%; }.theme-toggle { min-height:39px;padding:7px 11px; }.theme-label { font-size:11px; }
+  .hero { padding-top:66px; }.hero h1 { letter-spacing:-3px; }
+  .hero-buttons { flex-direction:row;flex-wrap:wrap; }.hero-buttons .btn { text-align:center; }
+  .contact-links { flex-direction:row; }.contact-links a { padding:10px 14px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after { scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important; }
+}
