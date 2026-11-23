@@ -20,6 +20,7 @@
 
     <link rel="canonical" href="https://taimiyatahsin0-png.github.io/">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme.css">
 
     <!-- Open Graph -->
     <meta property="og:type" content="profile">
@@ -80,6 +81,11 @@
         <a href="#" class="logo">
             Taimiya <span>🌸</span>
         </a>
+
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch theme">
+            <span class="theme-icon" aria-hidden="true">☀️</span>
+            <span class="theme-label">Light mode</span>
+        </button>
 
         <nav aria-label="Main navigation">
             <a href="#about">About</a>
@@ -421,6 +427,31 @@
     <footer>
         © <span id="year"></span> Taimiya Tahsin 🌸
     </footer>
+
+    <!-- Theme preference: saved locally; defaults to the system preference. -->
+    <script>
+        (() => {
+            const root = document.documentElement;
+            const button = document.getElementById("theme-toggle");
+            const icon = button.querySelector(".theme-icon");
+            const label = button.querySelector(".theme-label");
+            const saved = localStorage.getItem("taimiya-theme");
+            const preferred = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+            function applyTheme(theme) {
+                root.dataset.theme = theme;
+                const light = theme === "light";
+                icon.textContent = light ? "🌙" : "☀️";
+                label.textContent = light ? "Dark mode" : "Light mode";
+                button.setAttribute("aria-label", light ? "Switch to dark mode" : "Switch to light mode");
+            }
+            applyTheme(saved || preferred);
+            button.addEventListener("click", () => {
+                const next = root.dataset.theme === "dark" ? "light" : "dark";
+                localStorage.setItem("taimiya-theme", next);
+                applyTheme(next);
+            });
+        })();
+    </script>
 
     <!-- JavaScript -->
     <script>
