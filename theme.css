@@ -1006,3 +1006,84 @@ pre { color:#ffe5f4; }
 @media (prefers-reduced-motion:reduce) {
  .skill-card:hover,.interest-card:hover,.about-box div:hover { transform:none; }
 }
+
+
+/* =========================================================
+   LIVING BLUSH AURORA — animated wallpaper-like background
+   Lightweight CSS gradients + existing glow elements only.
+========================================================= */
+body {
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(ellipse at 12% 18%,rgba(255,48,174,.20),transparent 32%),
+    radial-gradient(ellipse at 82% 14%,rgba(255,178,218,.15),transparent 29%),
+    radial-gradient(ellipse at 72% 78%,rgba(151,47,119,.19),transparent 34%),
+    radial-gradient(ellipse at 18% 88%,rgba(255,105,190,.10),transparent 30%),
+    linear-gradient(135deg,#08050b 0%,#160916 42%,#0b0710 72%,#1b0b19 100%);
+  background-size:180% 180%;
+  animation: blushAuroraDrift 26s ease-in-out infinite alternate;
+}
+@keyframes blushAuroraDrift {
+  0% { background-position:0% 15%; }
+  50% { background-position:85% 45%; }
+  100% { background-position:20% 100%; }
+}
+.background-glow {
+  width:clamp(260px,38vw,520px);
+  height:clamp(260px,38vw,520px);
+  filter:blur(105px);
+  opacity:.16;
+  mix-blend-mode:screen;
+  will-change:transform;
+}
+.glow-one {
+  background:radial-gradient(circle,#ff39b5 0%,rgba(255,73,177,.48) 35%,transparent 72%);
+  animation:livingGlowOne 19s ease-in-out infinite alternate;
+}
+.glow-two {
+  background:radial-gradient(circle,#f7a9d1 0%,rgba(255,65,174,.38) 38%,transparent 72%);
+  animation:livingGlowTwo 23s ease-in-out infinite alternate;
+}
+@keyframes livingGlowOne {
+  0% { transform:translate3d(-3vw,-2vh,0) scale(.86); }
+  50% { transform:translate3d(17vw,13vh,0) scale(1.16); }
+  100% { transform:translate3d(5vw,29vh,0) scale(.96); }
+}
+@keyframes livingGlowTwo {
+  0% { transform:translate3d(2vw,3vh,0) scale(1.05); }
+  50% { transform:translate3d(-15vw,-12vh,0) scale(.82); }
+  100% { transform:translate3d(-4vw,-27vh,0) scale(1.12); }
+}
+/* Gentle moving sheen on plush cards */
+.skill-card,.interest-card,.about-box div {
+  background-size:180% 180%;
+  animation:plushSheen 17s ease-in-out infinite alternate;
+}
+@keyframes plushSheen {
+  0% { background-position:0% 20%; }
+  100% { background-position:100% 80%; }
+}
+:root[data-theme="light"] body {
+  background-color:#fff7fb;
+  background-image:
+    radial-gradient(ellipse at 12% 18%,rgba(255,90,177,.17),transparent 32%),
+    radial-gradient(ellipse at 82% 14%,rgba(255,194,222,.30),transparent 29%),
+    radial-gradient(ellipse at 72% 78%,rgba(225,132,181,.16),transparent 34%),
+    radial-gradient(ellipse at 18% 88%,rgba(255,145,199,.14),transparent 30%),
+    linear-gradient(135deg,#fff8fc 0%,#fbeaf3 48%,#fff6fa 100%);
+  background-size:180% 180%;
+}
+:root[data-theme="light"] .background-glow {
+  opacity:.22;
+  mix-blend-mode:multiply;
+}
+@media (prefers-reduced-motion:reduce) {
+  body,.background-glow,.skill-card,.interest-card,.about-box div {
+    animation:none!important;
+  }
+  body { background-position:50% 50%; }
+}
+@media (max-width:600px) {
+  .background-glow { width:270px;height:270px;filter:blur(90px);opacity:.12; }
+  body { background-size:220% 220%; }
+}
