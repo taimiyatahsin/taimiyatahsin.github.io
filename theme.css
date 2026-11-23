@@ -899,3 +899,110 @@ pre { color:#ffe5f4; }
 @media (prefers-reduced-motion:reduce) {
   .code-window,.skill-card,.interest-card,.btn,.contact-links a { transition:none!important; }
 }
+
+
+/* VISIBLE PLUSH DETAILS — make the faux-fur treatment unmistakable */
+:root[data-theme="dark"] {
+  --fur-base:#4a1835;
+  --fur-mid:#a94779;
+  --fur-light:#f3a9d0;
+  --fur-glint:#ffd8eb;
+}
+:root[data-theme="light"] {
+  --fur-base:#f1bfd7;
+  --fur-mid:#e98db9;
+  --fur-light:#fff0f7;
+  --fur-glint:#ffffff;
+}
+/* Fuzzy blush-fur frame around the terminal */
+.code-window {
+  position:relative;
+  isolation:isolate;
+  border:2px solid #ef8cbd;
+  outline:1px solid rgba(255,215,235,.55);
+  outline-offset:5px;
+  box-shadow:
+    0 0 0 8px rgba(226,116,171,.13),
+    0 0 0 12px rgba(255,205,229,.10),
+    0 20px 55px rgba(0,0,0,.36),
+    0 0 32px rgba(255,54,183,.24);
+}
+.code-window::before {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:-13px;
+  border-radius:inherit;
+  background:
+    repeating-conic-gradient(from 0deg at 50% 50%,rgba(255,225,240,.0) 0deg 2deg,rgba(255,190,220,.42) 2.5deg 3deg,rgba(255,225,240,.0) 3.5deg 5deg),
+    radial-gradient(ellipse at 25% 20%,#f8c2dc 0%,#bd6795 38%,#6d2c51 76%,transparent 78%);
+  filter:blur(7px);
+  opacity:.72;
+  pointer-events:none;
+}
+.skill-card,.interest-card,.about-box div {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  border:1px solid rgba(255,170,211,.48);
+  background:
+    radial-gradient(ellipse at 18% 12%,rgba(255,226,240,.34),transparent 35%),
+    repeating-linear-gradient(78deg,rgba(255,240,248,.16) 0 1px,transparent 1px 4px),
+    repeating-linear-gradient(112deg,rgba(255,179,215,.18) 0 1px,transparent 1px 6px),
+    radial-gradient(ellipse at 80% 100%,rgba(255,90,173,.24),transparent 54%),
+    linear-gradient(145deg,#3b172f,#6b294f 55%,#351328);
+  box-shadow:
+    inset 0 1px 0 rgba(255,240,248,.24),
+    inset 0 -8px 22px rgba(0,0,0,.16),
+    0 9px 28px rgba(255,54,183,.10);
+}
+.skill-card::before,.interest-card::before,.about-box div::before {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0;
+  pointer-events:none;
+  opacity:.58;
+  background:
+    repeating-linear-gradient(72deg,transparent 0 3px,rgba(255,223,239,.28) 3.4px,transparent 4.2px 7px),
+    repeating-linear-gradient(106deg,transparent 0 5px,rgba(255,155,204,.28) 5.4px,transparent 6px 10px),
+    radial-gradient(ellipse at 30% 0%,rgba(255,236,246,.3),transparent 60%);
+  filter:blur(.45px);
+}
+.skill-card::after,.interest-card::after {
+  content:"";
+  position:absolute;
+  inset:5px;
+  z-index:-1;
+  border:1px solid rgba(255,226,241,.16);
+  border-radius:inherit;
+  pointer-events:none;
+}
+.skill-card:hover,.interest-card:hover,.about-box div:hover {
+  transform:translateY(-5px);
+  border-color:#ffb8dc;
+  box-shadow:0 0 0 4px rgba(255,145,199,.12),0 18px 40px rgba(255,54,183,.22);
+}
+:root[data-theme="light"] .skill-card,
+:root[data-theme="light"] .interest-card,
+:root[data-theme="light"] .about-box div {
+  background:
+    radial-gradient(ellipse at 18% 12%,rgba(255,255,255,.95),transparent 38%),
+    repeating-linear-gradient(78deg,rgba(255,255,255,.48) 0 1px,transparent 1px 4px),
+    repeating-linear-gradient(112deg,rgba(199,105,151,.13) 0 1px,transparent 1px 6px),
+    radial-gradient(ellipse at 80% 100%,rgba(255,163,205,.25),transparent 54%),
+    linear-gradient(145deg,#fff4fa,#f6d5e6 58%,#fbeaf3);
+  border-color:#e8a9c9;
+  box-shadow:inset 0 1px 0 #fff,0 9px 28px rgba(169,80,128,.10);
+}
+:root[data-theme="light"] .skill-card::before,
+:root[data-theme="light"] .interest-card::before,
+:root[data-theme="light"] .about-box div::before {
+  opacity:.46;
+  background:
+    repeating-linear-gradient(72deg,transparent 0 3px,rgba(255,255,255,.85) 3.4px,transparent 4.2px 7px),
+    repeating-linear-gradient(106deg,transparent 0 5px,rgba(190,95,145,.18) 5.4px,transparent 6px 10px);
+}
+@media (prefers-reduced-motion:reduce) {
+ .skill-card:hover,.interest-card:hover,.about-box div:hover { transform:none; }
+}
