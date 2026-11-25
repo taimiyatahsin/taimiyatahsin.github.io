@@ -438,8 +438,10 @@
             const button = document.getElementById("theme-toggle");
             const icon = button.querySelector(".theme-icon");
             const label = button.querySelector(".theme-label");
-            const saved = localStorage.getItem("taimiya-theme");
-            const preferred = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+            let saved = null;
+            try { saved = localStorage.getItem("taimiya-theme"); } catch (_) {}
+            const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+            const preferred = prefersLight ? "light" : "dark";
             function applyTheme(theme) {
                 root.dataset.theme = theme;
                 const light = theme === "light";
@@ -447,10 +449,10 @@
                 label.textContent = light ? "Dark mode" : "Light mode";
                 button.setAttribute("aria-label", light ? "Switch to dark mode" : "Switch to light mode");
             }
-            applyTheme(saved || preferred);
+            applyTheme(saved === "light" || saved === "dark" ? saved : preferred);
             button.addEventListener("click", () => {
                 const next = root.dataset.theme === "dark" ? "light" : "dark";
-                localStorage.setItem("taimiya-theme", next);
+                try { localStorage.setItem("taimiya-theme", next); } catch (_) {}
                 applyTheme(next);
             });
         })();
@@ -507,7 +509,13 @@
             setTimeout(typeEffect, deleting ? 55 : 100);
         }
 
-        typeEffect();
+        const reduceMotion = window.matchMedia &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduceMotion) {
+            typingText.textContent = "CSE Student";
+        } else {
+            typeEffect();
+        }
 
         // Scroll reveal
         const revealElements =
