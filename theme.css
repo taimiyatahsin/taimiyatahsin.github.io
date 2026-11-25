@@ -1468,3 +1468,55 @@ body {
   .contact-icon-tile { width: 34px; height: 34px; flex-basis: 34px; }
   .contact-icon-tile img { width: 22px !important; height: 22px !important; }
 }
+
+
+/* Final contrast + responsive guardrails (overrides legacy theme layers). */
+/* Light mode: dark, readable code instead of pale text on a pale panel. */
+:root[data-theme="light"] .code-window {
+  color: #382b32 !important;
+  background: linear-gradient(145deg, #fffdf9, #f8edf2) !important;
+  border-color: #d9b7c6 !important;
+}
+:root[data-theme="light"] .code-window pre,
+:root[data-theme="light"] .code-window pre code {
+  color: #493640 !important;
+  text-shadow: none !important;
+}
+:root[data-theme="light"] .code-window .pink { color: #9b3769 !important; }
+:root[data-theme="light"] .code-window .green { color: #286b48 !important; }
+:root[data-theme="light"] .code-window .window-top {
+  border-bottom-color: #ead5df !important;
+}
+:root[data-theme="light"] .code-window .window-top span:nth-child(1) { background: #df8eaa !important; }
+:root[data-theme="light"] .code-window .window-top span:nth-child(2) { background: #d9b66e !important; }
+:root[data-theme="light"] .code-window .window-top span:nth-child(3) { background: #85b99a !important; }
+
+/* Keep every section reachable on tablet and phone widths. */
+@media (max-width: 900px) {
+  .navbar { flex-wrap: wrap !important; row-gap: 10px; }
+  .navbar nav {
+    display: flex !important;
+    order: 3;
+    width: 100%;
+    margin: 0 !important;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px clamp(14px, 4vw, 26px);
+    padding: 5px 0 2px;
+  }
+  .navbar nav a { display: inline-flex; padding: 6px 0; }
+}
+@media (max-width: 420px) {
+  .navbar .logo { font-size: 16px !important; }
+  .navbar nav { column-gap: 13px; }
+  .navbar nav a { font-size: 11px; }
+}
+
+/* Avoid forced animation for visitors who request reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-content, .hero-card, .code-window,
+  .contact-links a, .theme-toggle {
+    animation: none !important;
+    transition: none !important;
+  }
+}
