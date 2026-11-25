@@ -1407,3 +1407,64 @@ body {
     flex-basis: 22px;
   }
 }
+
+
+/* Contact icons: distinct app-like tiles with strong light-mode contrast */
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 58px;
+  padding: 9px 16px;
+  border: 1px solid color-mix(in srgb, var(--pink) 34%, var(--border));
+  background: color-mix(in srgb, var(--card) 88%, var(--pink) 12%);
+  box-shadow: 0 5px 16px rgba(35, 12, 28, .10);
+}
+.contact-icon-tile {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #e6dce3;
+  box-shadow: 0 2px 7px rgba(30, 15, 25, .12);
+}
+.contact-icon-tile img {
+  display: block !important;
+  width: 23px !important;
+  height: 23px !important;
+  max-width: 23px !important;
+  max-height: 23px !important;
+  object-fit: contain;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+}
+:root[data-theme="light"] .contact-links a {
+  color: #392333 !important;
+  background: linear-gradient(145deg, #fffafd, #f7e5ef) !important;
+  border: 1px solid #d7a9c2 !important;
+  box-shadow: 0 5px 15px rgba(130, 54, 97, .13), inset 0 1px 0 #fff !important;
+}
+:root[data-theme="light"] .contact-icon-tile {
+  background: #ffffff !important;
+  border: 1px solid #d8c4d0 !important;
+  box-shadow: 0 2px 8px rgba(90, 45, 70, .16) !important;
+}
+:root[data-theme="light"] .contact-links a:hover {
+  color: #8f285e !important;
+  border-color: #a83d70 !important;
+  background: #f3d8e7 !important;
+}
+:root[data-theme="dark"] .contact-icon-tile {
+  background: #fff !important;
+  border-color: #e8dce4 !important;
+}
+@media (max-width: 550px) {
+  .contact-links { gap: 10px !important; }
+  .contact-links a { min-height: 54px; padding: 8px 12px; }
+  .contact-icon-tile { width: 34px; height: 34px; flex-basis: 34px; }
+  .contact-icon-tile img { width: 22px !important; height: 22px !important; }
+}
