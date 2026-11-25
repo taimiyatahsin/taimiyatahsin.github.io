@@ -1543,3 +1543,70 @@ body {
     flex-basis: 22px;
   }
 }
+
+
+/* =========================================================
+   MIDNIGHT AURORA CODE PANEL — navy/violet with a restrained
+   pink neon accent. Scoped only to the hero code window.
+========================================================= */
+.hero-card .glow {
+  background: radial-gradient(circle, rgba(104, 116, 255, .34) 0%, rgba(146, 91, 255, .18) 42%, transparent 74%) !important;
+  opacity: .52 !important;
+  filter: blur(105px) !important;
+}
+.code-window {
+  background:
+    radial-gradient(ellipse at 82% 12%, rgba(111, 91, 255, .25), transparent 46%),
+    radial-gradient(ellipse at 18% 88%, rgba(37, 119, 190, .20), transparent 48%),
+    linear-gradient(145deg, #111a39 0%, #10152f 52%, #17132f 100%) !important;
+  border: 1px solid rgba(255, 112, 196, .72) !important;
+  box-shadow:
+    0 0 0 1px rgba(132, 119, 255, .22),
+    0 0 24px rgba(115, 103, 255, .20),
+    0 0 34px rgba(255, 91, 183, .10),
+    0 28px 75px rgba(0, 0, 0, .42),
+    inset 0 1px 0 rgba(255, 255, 255, .12) !important;
+  backdrop-filter: blur(14px);
+}
+.code-window:hover {
+  border-color: rgba(255, 145, 211, .92) !important;
+  box-shadow:
+    0 0 0 1px rgba(132, 119, 255, .28),
+    0 0 30px rgba(115, 103, 255, .26),
+    0 0 42px rgba(255, 91, 183, .14),
+    0 32px 82px rgba(0, 0, 0, .46),
+    inset 0 1px 0 rgba(255, 255, 255, .14) !important;
+}
+.code-window .window-top {
+  background: rgba(7, 13, 34, .42) !important;
+  border-bottom: 1px solid rgba(157, 165, 255, .20) !important;
+}
+.code-window .window-top span:nth-child(1) { background: #ff63bd !important; }
+.code-window .window-top span:nth-child(2) { background: #b6a5ff !important; }
+.code-window .window-top span:nth-child(3) { background: #78cfff !important; }
+.code-window pre,
+.code-window pre code {
+  color: #e9eaff !important;
+  text-shadow: 0 1px 8px rgba(8, 12, 32, .28);
+}
+.code-window .pink { color: #ff8dce !important; }
+.code-window .green { color: #9cebdc !important; }
+
+/* Keep the same high-contrast aurora panel in light mode too. */
+:root[data-theme="light"] .code-window {
+  background:
+    radial-gradient(ellipse at 82% 12%, rgba(111, 91, 255, .27), transparent 46%),
+    radial-gradient(ellipse at 18% 88%, rgba(37, 119, 190, .22), transparent 48%),
+    linear-gradient(145deg, #111a39 0%, #10152f 52%, #17132f 100%) !important;
+  border-color: rgba(255, 112, 196, .76) !important;
+}
+:root[data-theme="light"] .code-window pre,
+:root[data-theme="light"] .code-window pre code {
+  color: #e9eaff !important;
+}
+:root[data-theme="light"] .code-window .pink { color: #ff9bd6 !important; }
+:root[data-theme="light"] .code-window .green { color: #a5f0df !important; }
+:root[data-theme="light"] .code-window .window-top {
+  background: rgba(7, 13, 34, .48) !important;
+  border-bottom-color: rgba(157, 165, 255, .24) !important;
+}
