@@ -1373,3 +1373,37 @@ body {
   .stardust-layer::before { left:5%; }
   .stardust-layer::after { right:5%; }
 }
+
+
+/* Contact brand marks: preserve recognizable brand colors and contrast in light mode */
+.contact-links a img {
+  width: 23px;
+  height: 23px;
+  flex: 0 0 23px;
+  object-fit: contain;
+  opacity: 1;
+  visibility: visible;
+}
+:root[data-theme="light"] .contact-links a {
+  color: #382b32;
+  background: #fffdf9;
+  border-color: #e2c8d7;
+}
+:root[data-theme="light"] .contact-links a img {
+  opacity: 1;
+  filter: none;
+}
+:root[data-theme="light"] .contact-links a .contact-icon {
+  stroke: #493640;
+}
+:root[data-theme="dark"] .contact-links a img {
+  opacity: 1;
+}
+@media (max-width: 550px) {
+  .contact-links a img,
+  .contact-links a .contact-icon {
+    width: 22px;
+    height: 22px;
+    flex-basis: 22px;
+  }
+}
