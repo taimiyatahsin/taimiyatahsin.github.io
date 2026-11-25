@@ -935,3 +935,36 @@ footer {
         flex-direction: column;
     }
 }
+
+
+/* Brand icons in the contact area */
+.contact-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 46px;
+    white-space: nowrap;
+}
+.contact-links a img,
+.contact-links a .contact-icon {
+    display: block;
+    width: 21px;
+    height: 21px;
+    flex: 0 0 21px;
+}
+.contact-links a .contact-icon {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.contact-links a img {
+    object-fit: contain;
+}
+@media (max-width: 550px) {
+    .contact-links a { min-height: 44px; gap: 8px; }
+    .contact-links a img,
+    .contact-links a .contact-icon { width: 20px; height: 20px; flex-basis: 20px; }
+}
