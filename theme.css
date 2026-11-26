@@ -1794,3 +1794,31 @@ body {
   .code-window { transform: none !important; transition: none !important; }
   .code-window:hover { transform: none !important; }
 }
+
+
+/* Moon + tiny floating stardust around Creative Space. */
+.hero-card { position: relative; isolation: isolate; }
+.hero-card::before,
+.hero-card::after {
+  position: absolute; z-index: 3; pointer-events: none; user-select: none; line-height: 1;
+}
+.hero-card::before {
+  content: "☾"; top: -27px; right: 7%; color: #f7c9f0;
+  font: 43px/1 Georgia, serif; transform: rotate(-18deg);
+  text-shadow: 0 0 10px rgba(255,174,226,.8), 0 0 26px rgba(174,139,255,.55);
+}
+.hero-card::after {
+  content: "✦   ·   ✧      ·   ⋆"; top: 17%; left: -25px;
+  color: #c9b9ff; font-size: 13px; letter-spacing: 7px;
+  text-shadow: 0 0 8px rgba(190,165,255,.9), 0 0 18px rgba(255,163,218,.55);
+  animation: creative-stardust 4.8s ease-in-out infinite alternate;
+}
+@keyframes creative-stardust {
+  from { opacity: .48; transform: translateY(2px) scale(.94); }
+  to { opacity: 1; transform: translateY(-5px) scale(1.06); }
+}
+@media (max-width: 600px) {
+  .hero-card::before { top: -19px; right: 5%; font-size: 34px; }
+  .hero-card::after { left: -8px; top: 13%; font-size: 10px; letter-spacing: 4px; }
+}
+@media (prefers-reduced-motion: reduce) { .hero-card::after { animation: none !important; } }
