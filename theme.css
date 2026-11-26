@@ -1840,3 +1840,41 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .code-window pre::after { animation: none !important; }
 }
+
+
+/* NEON TYPOGRAPHY — soft luminous ink for the Creative Space panel. */
+.code-window .window-top::after {
+  color: #ffe3fa !important;
+  text-shadow:
+    0 0 4px rgba(255, 220, 248, .95),
+    0 0 10px rgba(255, 111, 202, .82),
+    0 0 22px rgba(188, 119, 255, .58) !important;
+  letter-spacing: 2.1px !important;
+}
+.code-window pre,
+.code-window pre code {
+  text-shadow:
+    0 0 5px rgba(205, 190, 255, .18),
+    0 0 12px rgba(128, 153, 255, .12) !important;
+}
+.code-window .pink {
+  color: #ffb4e2 !important;
+  text-shadow:
+    0 0 4px rgba(255, 156, 218, .95),
+    0 0 10px rgba(255, 77, 183, .68),
+    0 0 20px rgba(255, 77, 183, .30) !important;
+}
+.code-window .green {
+  color: #b7fff0 !important;
+  text-shadow:
+    0 0 4px rgba(157, 255, 232, .90),
+    0 0 11px rgba(74, 226, 207, .58),
+    0 0 19px rgba(74, 226, 207, .24) !important;
+}
+:root[data-theme="light"] .code-window .window-top::after {
+  color: #fff0fb !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .code-window .window-top::after,
+  .code-window pre::after { animation: none !important; }
+}
